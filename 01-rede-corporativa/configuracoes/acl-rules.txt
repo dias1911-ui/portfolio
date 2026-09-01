@@ -1,0 +1,77 @@
+# ============================================
+# ACL Rules - Regras de Segurança
+# ============================================
+
+## ACL 101 - Restrições VLAN 10 (Administrativo)
+access-list 101 deny ip 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255
+access-list 101 permit ip 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255
+access-list 101 permit ip 192.168.10.0 0.0.0.255 any
+access-list 101 deny ip any any
+
+## ACL 102 - Permissões VLAN 20 (TI)
+access-list 102 permit ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+access-list 102 permit ip 192.168.20.0 0.0.0.255 any
+access-list 102 deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+access-list 102 deny ip any any
+
+## ACL 103 - Permissões VLAN 30 (Servidores)
+access-list 103 permit ip 192.168.30.0 0.0.0.255 any
+access-list 103 deny ip any any
+
+## ACL 104 - Acesso ao DNS
+access-list 104 permit udp any 192.168.30.51 eq domain
+access-list 104 permit tcp any 192.168.30.51 eq domain
+access-list 104 deny ip any any
+
+## ACL 105 - Acesso ao DHCP
+access-list 105 permit udp any 192.168.30.50 eq bootps
+access-list 105 permit udp any 192.168.30.50 eq bootpc
+access-list 105 deny ip any any
+
+## ACL 106 - Acesso ao HTTPS (Gerenciamento)
+access-list 106 permit tcp 192.168.0.0 0.0.255.255 any eq 443
+access-list 106 permit tcp 192.168.0.0 0.0.255.255 any eq 22
+access-list 106 deny ip any any
+
+# ============================================
+# Aplicação das ACLs em Interfaces
+# ============================================
+
+## Na VLAN 10 (Administrativo)
+interface vlan 10
+ ip access-group 101 in
+ ip access-group 106 in
+exit
+
+## Na VLAN 20 (TI)
+interface vlan 20
+ ip access-group 102 in
+ ip access-group 106 in
+exit
+
+## Na VLAN 30 (Servidores)
+interface vlan 30
+ ip access-group 103 in
+ ip access-group 104 in
+ ip access-group 105 in
+exit
+
+# ============================================
+# Verificação de ACLs
+# ============================================
+
+# Exibir todas as ACLs
+show access-lists
+
+# Exibir ACL específica
+show access-list 101
+show access-list 102
+show access-list 103
+
+# Ver ACLs aplicadas em interface
+show ip interface vlan 10 | include access list
+show ip interface vlan 20 | include access list
+show ip interface vlan 30 | include access list
+
+# Estatísticas de ACL
+show access-lists accounting

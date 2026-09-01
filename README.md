@@ -46,25 +46,47 @@ python -m http.server 8000
 
 Abra `index.html` e localize e edite:
 
-```html
 <!-- Nome -->
-<h1>Olá! 👋 Sou <span class="destaque">SEU_NOME</span></h1>
+<h1>
+    Olá! 👋 Sou
+    <span class="destaque">Washington Dias Brandão</span>
+</h1>
 
 <!-- Profissão -->
-<p class="profissao">Sua Especialidade</p>
+<p class="profissao">
+    Engenheiro de Software em formação | Infraestrutura, Redes e Linux
+</p>
 
 <!-- Descrição -->
-<p class="descricao">Suas áreas de expertise</p>
+<p class="descricao">
+    Engenheiro de Software em formação, com foco em Infraestrutura de TI,
+    Redes, Linux e Cloud Computing. Desenvolvo projetos práticos envolvendo
+    administração de servidores, configuração de redes, monitoramento,
+    segurança, automação e troubleshooting de ambientes de TI.
+</p>
 
 <!-- Email -->
-<a href="mailto:seu.email@exemplo.com" class="btn-contato">📧 Email</a>
+<a
+    href="mailto:washingtondias1911@gmail.com"
+    class="btn-contato"
+>
+    📧 Email
+</a>
 
 <!-- LinkedIn -->
-<a href="https://linkedin.com/in/seu-perfil" target="_blank">💼 LinkedIn</a>
+<a
+    href="https://www.linkedin.com/in/washington-dias-b02a7716b/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    💼 LinkedIn
+</a>
 
 <!-- GitHub -->
-<a href="https://github.com/seu-usuario" target="_blank">💻 GitHub</a>
-```
+<a
+    href="https://github.com/dias1911-ui"
+    target="_blank"
+    rel="noopener noreferrer"
 
 ### 2. Projetos (5 Principais)
 

@@ -255,7 +255,7 @@ Contribuições são bem-vindas! Faça um fork, crie uma branch com suas mudanç
 
 ## 📞 Contato
 
-- 📧 Email: seu.email@exemplo.com
+- 📧 Email: washingtondias1911@gmail.com
 - 💼 LinkedIn: [seu-perfil](https://linkedin.com)
 - 💻 GitHub: [dias1911-ui](https://github.com/dias1911-ui)
-- 🐦 Twitter: [@seu-usuario](https://twitter.com)
+  
